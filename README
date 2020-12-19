@@ -1,3 +1,17 @@
 This is CMSBASIC.  I ported over gpl bxbasic to
 run via vm370 cms
 
+Installing:
+
+To install CMSBASIC, transfer all source code into your vm370 machine.
+I use GCCCMS in my test system.
+
+Once the code is transfered, then compile the CMSBASIC code by
+typing:
+
+gcc CMSBASIC C
+
+You should get a clean compile.
+
+
+
