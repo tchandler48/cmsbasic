@@ -157,7 +157,6 @@ double math_functn()
     case 1:		/* get_ABS */
       ivalue = (long) Factor();
       value = (double) abs(ivalue);
-      return value;
       break;
 
     case 2:		/* get_ASC */
@@ -194,19 +193,16 @@ double math_functn()
       pi++;
       e_pos = pi;
       value = (double) ch;
-      return value;
       break;
 
     case 3:		/* get_ATN */
       value = Factor();
       value = atan(value);
-      return value;
       break;
 
     case 4:		/* get_COS */
       value = Factor();
       value = cos(value);
-      return value;
       break;
 
     case 5:		/* get_SIN */
@@ -256,7 +252,6 @@ double math_functn()
     /*        value = get_SECONDS();  */            
             break;
         case 22:
-    /*        value = get_DRIVE();    */             
             break;
         case 23:
     /*        value = get_EXP();     */              
@@ -397,7 +392,6 @@ double get_CLNG()
     }
 
     value += lngpart;
-
     return value;
 }
 */
@@ -980,20 +974,6 @@ double get_EXP()
 }
 */
 /*---------- end get_EXP ----------*/
-
-
-/*
-int get_DRIVE()
-{   int value;               
-                              
-
-    value = _getdrive();
-
-    return value;
-
-}
-*/
-/*---------- end get_DRIVE ----------*/
 
 
 /*
