@@ -19,7 +19,6 @@ USERID GCCCMS
     string = $
 */
 
-
 void do_dim_var()
 {   
   int test, pi, len;           
