@@ -133,6 +133,7 @@ void dim_intarry(char *varname, int len, int type)
     size = iArryCnt + 1;
     intArry = realloc(intArry, size * sizeof(struct integer_array));
   }
+
   strcpy(intArry[iArryCnt].name, varname);
   param = get_paramsCount(pi, len);	
   intArry[iArryCnt].dim = param;
@@ -157,6 +158,7 @@ void dim_intarry(char *varname, int len, int type)
     pi = e_pos;
     /* get_digit Start */
     ch = p_string[pi];
+
     while((isdigit(ch) == 0) && (pi < len))
     {
       pi++;
@@ -265,6 +267,7 @@ void dim_dblarry(char *varname, int len, int type)
       a_bort(ab_code, x);
     }
   }
+
   if(dArryCnt == 0)
   {
     size = 1;
@@ -275,6 +278,7 @@ void dim_dblarry(char *varname, int len, int type)
     size = dArryCnt + 1;
     dblArry = realloc(dblArry, size * sizeof(struct double_array));
   }
+
   strcpy(dblArry[dArryCnt].name, varname);
   param = get_paramsCount(pi, len);	
   dblArry[dArryCnt].dim = param;
@@ -286,6 +290,7 @@ void dim_dblarry(char *varname, int len, int type)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -306,6 +311,7 @@ void dim_dblarry(char *varname, int len, int type)
     /* get_digit Stop */
     e_pos = pi;
   }
+
   dblArry[dArryCnt].elem = malloc(multiplier * sizeof(double));
   dArryCnt++;					
 }
