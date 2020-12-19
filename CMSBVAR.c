@@ -87,6 +87,7 @@ void parse_dim()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_alpha Stop */
   if(pi == len)                     
   {
