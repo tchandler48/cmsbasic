@@ -48,6 +48,7 @@ USERID GCCCMS
     char **label_nam;          /* labels name array             */
      int token;                /* token: current byte code      */
     char var_type;             /* current variable type         */
+     int use_socket = 0;	   /* tcp socket flag		 */
                        
 
 /*--------------------- GLOBAL VARIABLES ---------------------*/
