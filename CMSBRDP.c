@@ -210,9 +210,11 @@ double math_functn()
       value = sin(value);
       break;
 
-        case 6:
-     /*       value = get_TAN();        */           
-            break;
+    case 6:		/* get_TAN */
+      value = Factor();
+      value = tan(value);
+      break;
+
         case 7:
      /*       value = get_SQRT();	     */            
             break;
@@ -1176,21 +1178,6 @@ double get_SQRT()
 }
 */
 /*---------- end get_SQRT ----------*/
-
-
-
-/*
-double get_TAN()
-{   double value;             
-                              
-
-    value = Factor();
-    value = tan(value);
-
-    return value;
-}
-*/
-/*---------- end get_TAN ----------*/
 
 
 void Match(char x)             
