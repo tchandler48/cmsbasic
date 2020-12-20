@@ -206,10 +206,10 @@ double math_functn()
       break;
 
     case 5:		/* get_SIN */
+      value = Factor();
+      value = sin(value);
+      break;
 
-
-     /*       value = get_SIN();        */           
-            break;
         case 6:
      /*       value = get_TAN();        */           
             break;
@@ -1191,20 +1191,6 @@ double get_TAN()
 }
 */
 /*---------- end get_TAN ----------*/
-
-
-/*
-double get_SIN()
-{   double value;        
-                         
-
-    value = Factor();
-    value = sin(value);
-
-    return value;
-}
-*/
-/*---------- end get_SIN ----------*/
 
 
 void Match(char x)             
