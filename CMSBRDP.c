@@ -215,9 +215,11 @@ double math_functn()
       value = tan(value);
       break;
 
-        case 7:
-     /*       value = get_SQRT();	     */            
-            break;
+    case 7:		/* get_SQRT */
+      value = Factor();
+      value = sqrt(value);
+      break;
+
         case 8:
      /*       value = get_INT();	     */       
             break;
@@ -1163,21 +1165,6 @@ double get_INT()
 }
 */
 /*---------- end get_INT ----------*/
-
-
-
-/*
-double get_SQRT()
-{   double value;           
-                            
-
-    value = Factor();
-    value = sqrt(value);
-
-    return value;
-}
-*/
-/*---------- end get_SQRT ----------*/
 
 
 void Match(char x)             
