@@ -270,6 +270,7 @@ USERID GCCCMS
 #include "CMSBLOOP.c"
 #include "CMSBOUT.c"
 #include "CMSBRDP.c"
+#include "CMSBSTRG.c"
 #include "CMSBSTRT.c"
 #include "CMSBSUB.c"
 #include "CMSBUTL.c"
