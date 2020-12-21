@@ -13,6 +13,23 @@ gcc CMSBASIC C
 
 You should get a clean compile.
 
+Next type the following commands:
+
+LOAD CMSBASIC
+GENMOD CMSBASIC
+RENAME LOAD MAP A CMSBASIC MAP A
+
+
+Now to execute programs
+
+Sample program bx10 bas, type the command
+
+CMSBASIC BX10 BAS
+
+you should get a sample program executed.
+
+
+
 
 
 TO DO:
