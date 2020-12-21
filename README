@@ -1,5 +1,8 @@
 This is CMSBASIC.  I ported over gpl bxbasic to
-run via vm370 cms
+run via vm370 cms.  The code has beeb tested ib
+VM370 6PExt,  It should run under other versions, if
+you have the GCC compiler and runtime installed.
+
 
 Installing:
 
@@ -10,7 +13,7 @@ Once the code is transfered, then compile the CMSBASIC code by
 typing:
 
 gcc CMSBASIC C
-
+s
 You should get a clean compile.
 
 Next type the following commands:
@@ -28,6 +31,9 @@ CMSBASIC BX10 BAS
 
 you should get a sample program executed.
 
+
+Questions/Comments
+tchandler48@gmail.com
 
 
 
