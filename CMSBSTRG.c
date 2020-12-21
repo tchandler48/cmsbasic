@@ -334,8 +334,6 @@ void asn_function()
     case 9:	/* a$ = INPUT$(n) */
 	
 
-
-
     /*        inputstr();	*/	
             break;
         case 10:	/* a$ = MKD$(n) */
@@ -443,7 +441,7 @@ void asn_function()
 /*
 void mkdstr()                       
 {                                   
-    strsval();                      
+  strsval();                      
 }
 */
 /*------ end mkdstr ------*/
@@ -451,40 +449,36 @@ void mkdstr()
 
 /*
 void inputstr()
-{   char ch;
-    int pi, count, i;
+{   
+  char ch;
+  int pi, count, i;
 
+  pi = e_pos;                      
+  pi++;                            
+  e_pos = pi;
+  count = (int) get_avalue();
 
-    pi = e_pos;                      
-    pi++;                            
-    e_pos = pi;
+  for(i=0; i <= count; i++)
+  {
+    s_holder[i] = '\0';
+  }
 
-    count = (int) get_avalue();
-
- 
-    for(i=0; i <= count; i++)
+  i = 0;
+  while(i < count)
+  {
+    ch = getche();
+    if((ch > 31) && (ch < 127))	
     {
-        s_holder[i] = '\0';
+      s_holder[i] = ch;
+      i++;
     }
-
-    i = 0;
-
-    while(i < count)
+    else if((ch == 8) && (i > 0))	
     {
-        ch = getche();
-
-        if((ch > 31) && (ch < 127))	
-        {
-            s_holder[i] = ch;
-            i++;
-        }
-        else if((ch == 8) && (i > 0))	
-        {
-            s_holder[i] = '\0';
-            i--;
-        }
+      s_holder[i] = '\0';
+      i--;
     }
-    s_holder[count] = '\0';
+  }
+  s_holder[count] = '\0';
 }
 */
 /*---------- end inputstr ----------*/
@@ -536,79 +530,73 @@ int get_strndx(char *varname)
 
 
 void strvar_assgn()
-{   char varname[VAR_NAME], ch;
-    int pi, pii, len, type, indx, nDims, offset;
-    int *Subscripts;
+{
+  char varname[VAR_NAME], ch;
+  int pi, pii, len, type, indx, nDims, offset;
+  int *Subscripts;
 
+  pi = e_pos;
+  pii = pi;                               
+  strcpy(varname, get_varname());
+  pi = e_pos;
+  type = get_objtype(pi);
 
-    pi = e_pos;
-    pii = pi;                               
+  if((UdtCnt > 0) && (type == 0))         
+  {
+    type = isThisUdt(varname, type);
+    udtpi += pii;                       
+  }
 
-    strcpy(varname, get_varname());
-    pi = e_pos;
-    type = get_objtype(pi);
+  switch(type)
+  {
+    case 0:                                  
+      if(callFlag == 0)
+      {
+        indx = get_vndx(varname);
+      }
+      else
+      {
+        indx = get_llvarndx(varname);    
+      }
+      strcpy(s_holder, Gtbl[indx].Str);
+      break;
 
-    if((UdtCnt > 0) && (type == 0))         
-    {
-        type = isThisUdt(varname, type);
-        udtpi += pii;                       
-    }
+    case 6:                                  
+      indx = get_arrayndx(varname);
+      Subscripts = &strArry[indx].sub[0];  
+      nDims = strArry[indx].dim;           
+      pi = e_pos;
+      len = strlen(p_string);
+      /* get_paren Start */
+      ch = p_string[pi];
+      while((strchr("()", ch) == 0) && (pi < len))
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+      /* get_paren Stop */
+      pi++;
+      e_pos = pi;
+      offset = get_offset2(Subscripts, nDims, len);
+      strcpy(s_holder, strArry[indx].elem[offset]);
+      /* get_paren Start */
+      ch = p_string[pi];
+      while((strchr("()", ch) == 0) && (pi < len))
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+      /* get_paren Stop */
+      e_pos = pi;
+      break;
 
-    switch(type)
-    {
-        case 0:                                  
-            if(callFlag == 0)
-            {
-                indx = get_vndx(varname);
-            }
-            else
-            {
-                indx = get_llvarndx(varname);    
-            }
-
-            strcpy(s_holder, Gtbl[indx].Str);
-            break;
-        case 6:                                  
-            indx = get_arrayndx(varname);
-
-            Subscripts = &strArry[indx].sub[0];  
-            nDims = strArry[indx].dim;           
-
-            pi = e_pos;
-            len = strlen(p_string);
-            /* get_paren Start */
-            ch = p_string[pi];
-            while((strchr("()", ch) == 0) && (pi < len))
-            {
-               pi++;
-               ch = p_string[pi];
-            }
-            /* get_paren Stop */
-            pi++;
-            e_pos = pi;
-
-            offset = get_offset2(Subscripts, nDims, len);
-
-            strcpy(s_holder, strArry[indx].elem[offset]);
-            /* get_paren Start */
-            ch = p_string[pi];
-            while((strchr("()", ch) == 0) && (pi < len))
-            {
-              pi++;
-              ch = p_string[pi];
-            }
-            /* get_paren Stop */
-
-            e_pos = pi;
-            break;
-        case 10:                                 
-            e_pos = pi;
-            get_UDTstr();
-            break;
-    }
+    case 10:
+      e_pos = pi;
+      get_UDTstr();
+      break;
+  }
 }
 /*---------- end strvar_assgn ----------*/
-
 
 
 void dim_strarry(char *varname, int len, int type)
