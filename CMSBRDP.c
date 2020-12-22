@@ -300,7 +300,7 @@ double math_functn()
     case 36:		/*  get_SINH */
       value = Factor();
       value = sinh(value);
-       break;
+      break;
 
     case 37:		/*  get_TANH */
       value = Factor();
