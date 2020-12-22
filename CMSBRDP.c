@@ -296,9 +296,11 @@ double math_functn()
         case 35:
      /*       value = get_POW10();     */            
             break;
-        case 36:
-     /*       value = get_SINH();      */            
-            break;
+
+    case 36:		/*  get_SINH */
+      value = Factor();
+      value = sinh(value);
+       break;
 
     case 37:		/*  get_TANH */
       value = Factor();
@@ -612,20 +614,6 @@ double get_ATAN2()
 }
 */
 /*---------- end get_ATAN2 ----------*/
-
-
-/*
-double get_SINH()
-{   double value;      
-                       
-
-    value = Factor();
-    value = sinh(value);
-
-    return value;
-}
-*/
-/*---------- end get_SINH ----------*/
 
 
 /*
