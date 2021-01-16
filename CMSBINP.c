@@ -208,7 +208,7 @@ void tmp_byte(int ii)
      else if(isalpha(ch))                     
      {
        si = pi;                             
-       //pi = while_isalnum(pi);
+       /* pi = while_isalnum(pi); */
        pi = while_dd(pi);           
        pi = iswhite(pi);
        ch = p_string[pi];

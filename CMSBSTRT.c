@@ -141,8 +141,8 @@ void get_UDTstr()
 
     memcpy(s_holder, ptr, size * sizeof(char));
 
-//    memcpy(string2, &myarray[21], len * sizeof(char));
-//    memcpy(ptr, &temp, size * sizeof(char));
+/*    memcpy(string2, &myarray[21], len * sizeof(char));
+      memcpy(ptr, &temp, size * sizeof(char)); */
 }
 /*------ end get_UDTstr ------*/
 
@@ -388,7 +388,7 @@ void struct_Udt()
     }
 
     /* --- dynamically create array structures --- */
-//    UDT = malloc(1 * sizeof(struct tag_UDT));   
+/*    UDT = malloc(1 * sizeof(struct tag_UDT));   */
 
     if(UdtCnt == 0)
     {
