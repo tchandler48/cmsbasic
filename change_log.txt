@@ -1,0 +1,10 @@
+
+List of changes to CMSBASIC since initial upload:
+
+NOTE****  Code cleanup is not listed, only changes
+ 	   to programs themselves.
+
+01/16/2021	-	Fixed bug in fopen in CMSBINP.c
+
+
+

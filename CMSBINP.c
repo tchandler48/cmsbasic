@@ -9,18 +9,35 @@ void line_cnt(char *argv[])
    int pi, len, ii=0, x=0;
    int ab_code=2;
    unsigned fnam_len;
+   int xx,yy;
+   char tch;
 
    nrows = 0;
  
 #ifdef CMS
+
   strcpy(prog_name, argv[1]);
-  strcat(prog_name, " ");
-  strcat(prog_name, argv[2]);
-  strcat(prog_name, " ");
-  strcat(prog_name, argv[3]); 
-  strcat(prog_name, '\0');
-  strcpy(s_holder, prog_name);
+
+  xx = 0;
+  yy = 0;
+  tch = prog_name[xx];
+  while(tch != '.')
+  {
+     s_holder[yy] = tch;
+     xx++;
+     yy++;
+     tch = prog_name[xx];
+   }
+   s_holder[yy] = ' ';
+   s_holder[yy+1] = 'b';
+   s_holder[yy+2] = 'a';
+   s_holder[yy+3] = 's';
+   s_holder[yy+4] = ' ';
+   s_holder[yy+5] = 'a';
+
+  strcpy(prog_name,s_holder);
 #endif
+
 
    f_in = fopen(prog_name,"r");
    if(f_in == NULL)                
@@ -39,7 +56,7 @@ void line_cnt(char *argv[])
 
 void load_src()
 {   
-   char *tmp="source.tmp";
+   char *tmp="source tmp a";
    int pi, len;
    char ch;
     
@@ -105,7 +122,7 @@ void load_src()
 void loader_1()
 {   
    char ch;
-   char *tmp="source.tmp";
+   char *tmp="source tmp a";
    int ii, len, pi;
    unsigned size=ncolumns;
 
