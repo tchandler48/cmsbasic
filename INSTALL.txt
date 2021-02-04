@@ -1,0 +1,72 @@
+
+
+Installation
+
+	The CMSBASIC system has been developed using VM370 6Pack Extened
+	It MAY work on other VM releases or MAY not.
+
+	To install the CMSBASIC on your running VM370 CMS
+	sysem, follow the steps listed below.
+
+	1.	The following source code must be uploaded to the
+		distribution that you are using (See Systems Tested)
+		and Userid that your are loading under.
+			clr3270.assemble
+                     TBASIC.exec
+			CMSBARR.c
+			CMSBASIC.c
+			CMSBERR.c
+			CMSBFIL.c
+			CMSBGINP.c
+			CMSBIF.c
+			CMSBINP.c
+			CMSBLOOP.c
+			CMSBOUT.c
+			CMSBPROT.h
+			CMSBRDP.c
+			CMSBSTRG.c
+			CMSBSTRT.c
+			CMSBSUB.c
+			CMSBUTL.c
+			CMSBVAR.c
+
+
+
+	
+Sytems Tested
+
+	The following VM370 distribuion have been used to test CMSBASIC.  Any
+	system not listed, MAY work, but I have not tested via them.
+	I have only tested under the users that is listed in the
+	system description.  Other user id's on the system MAY OR MAY NOT
+	work.
+
+
+	1.  VM 370 6Pack Extended by Prof. Ferland at:
+           	https://geronimo370.nl/vm6pext/vm-370/
+
+           Tested under Userid:
+		GCCCMS
+			Runs without any changes.
+
+		CMSUSER  ** NOTE **
+			You must do the following to make CMSBASIC compile and
+			run under the CMSUSER ID.
+			Logon on to CMSUSER and wait until CMS is running.
+			Then type:
+				CP DEF STOR 15M
+			The system will respond with a message about storage	
+			size and respond with a CP message. 
+			Then type:
+				IPL CMS
+			After CMS is running,
+			Type:
+				GLOBAL TXTLIB PDPCLIB
+
+			The system is now ready applications.
+
+
+
+
+	2.  Other VM370 platforms MAY or MAY NOT work.
+
