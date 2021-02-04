@@ -30,6 +30,15 @@ Installation
 			CMSBUTL.c
 			CMSBVAR.c
 
+	2.	Comile the clr3270 assemble module using the following:
+			ASSEMBLE CLR3270
+
+	3.	Now to compile CMSBASIC, type the following:
+			TBASIC
+
+		This will compile all the CMSBASIC sources and create 
+		an executable CMSBASIC.
+
 
 
 	
