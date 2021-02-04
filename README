@@ -12,13 +12,15 @@ I use GCCCMS in my test system.
 Once the code is transfered, then compile the CMSBASIC code by
 typing:
 
+ASSEMBLE clr3270
+
 gcc CMSBASIC C
 
 You should get a clean compile.
 
 Next type the following commands:
 
-LOAD CMSBASIC
+LOAD CMSBASIC CLR3270
 GENMOD CMSBASIC
 RENAME LOAD MAP A CMSBASIC MAP A
 
