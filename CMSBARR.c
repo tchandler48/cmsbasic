@@ -1,4 +1,4 @@
-USERID GCCCMS
+USERID CMSUSER
 
 /* bxbasic : Arrays.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011          */
@@ -43,6 +43,7 @@ void do_dim()
   e_pos = pi;
   strcpy(varname, get_varname());			
   pi = e_pos;
+
   /* --- get array type --- */
   type = get_Arrytype(pi);				
   if(type < 6)
@@ -108,6 +109,7 @@ void dim_intarry(char *varname, int len, int type)
   char ch;
 
   pi = e_pos;
+
   /*--- integer array ---*/
   if(iArryCnt > 0)
   {
@@ -138,6 +140,7 @@ void dim_intarry(char *varname, int len, int type)
   param = get_paramsCount(pi, len);	
   intArry[iArryCnt].dim = param;
   Sav_ObjName(varname, type, param);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -181,6 +184,7 @@ void dim_fltarry(char *varname, int len, int type)
   char ch;
 
   pi = e_pos;
+
   /*--- float array ---*/
   if(fArryCnt > 0)
   {
@@ -211,6 +215,7 @@ void dim_fltarry(char *varname, int len, int type)
   param = get_paramsCount(pi, len);	
   fltArry[fArryCnt].dim = param;
   Sav_ObjName(varname, type, param);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -236,6 +241,7 @@ void dim_fltarry(char *varname, int len, int type)
       pi++;
       ch = p_string[pi];
     }
+
     /* get_digit Stop */
     e_pos = pi;
   }
@@ -253,6 +259,7 @@ void dim_dblarry(char *varname, int len, int type)
   char ch;
 
   pi = e_pos;
+
   /*--- float array ---*/
   if(dArryCnt > 0)
   {
@@ -283,6 +290,7 @@ void dim_dblarry(char *varname, int len, int type)
   param = get_paramsCount(pi, len);	
   dblArry[dArryCnt].dim = param;
   Sav_ObjName(varname, type, param);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -308,6 +316,7 @@ void dim_dblarry(char *varname, int len, int type)
       pi++;
       ch = p_string[pi];
     }
+
     /* get_digit Stop */
     e_pos = pi;
   }
@@ -352,6 +361,7 @@ void reuse_fltarry(char *name, int type)
   {
     ndx++;
   }
+
   strcpy(ObjIndx[ndx], name);
   ObjType[ndx][0] = type;
   strcpy(varname, name);
@@ -374,6 +384,7 @@ void reuse_dblarry(char *name, int type)
   {
     ndx++;
   }
+
   strcpy(ObjIndx[ndx], name);
   ObjType[ndx][0] = type;
   strcpy(varname, name);
@@ -393,6 +404,7 @@ void parse_intarry(char *varname)
   indx = get_iarrayndx(varname); 
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -400,6 +412,7 @@ void parse_intarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -425,6 +438,7 @@ void parse_fltarry(char *varname)
   indx = get_farrayndx(varname);
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -432,6 +446,7 @@ void parse_fltarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -457,6 +472,7 @@ void parse_dblarry(char *varname)
   indx = get_darrayndx(varname);
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -464,6 +480,7 @@ void parse_dblarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -474,6 +491,7 @@ void parse_dblarry(char *varname)
   pi++;
   pi = iswhiter(pi);
   e_pos = pi;
+
   /* --- now get assignment value --- */
   Match('=');
   dblArry[indx].elem[offset] = (double) rdp_main();
@@ -488,6 +506,7 @@ void do_redim()
 
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_alpha Start */
   ch = p_string[pi];
   while((isalpha(ch) == 0) && (pi < len))
@@ -495,6 +514,7 @@ void do_redim()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_alpha Stop */
   if(pi == len)                     
   {
@@ -541,6 +561,7 @@ void redim_intarry(char *varname)
   indx = get_iarrayndx(varname);
   pi = e_pos;
   len = strlen(p_string);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -548,6 +569,7 @@ void redim_intarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -566,6 +588,7 @@ void redim_intarry(char *varname)
     intArry[indx].sub[ndx] = subscript;
     multiplier = multiplier * subscript;
     pi = e_pos;
+
     /* get_digit Start */
     ch = p_string[pi];
     while((isdigit(ch) == 0) && (pi < len))
@@ -573,6 +596,7 @@ void redim_intarry(char *varname)
       pi++;
       ch = p_string[pi];
     }
+
     /* get_digit Stop */
     e_pos = pi;
   }
@@ -591,6 +615,7 @@ void redim_fltarry(char *varname)
   indx = get_farrayndx(varname);
   pi = e_pos;
   len = strlen(p_string);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -598,6 +623,7 @@ void redim_fltarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -616,6 +642,7 @@ void redim_fltarry(char *varname)
     fltArry[indx].sub[ndx] = subscript;
     multiplier = multiplier * subscript;
     pi = e_pos;
+
     /* get_digit Start */
     ch = p_string[pi];
     while((isdigit(ch) == 0) && (pi < len))
@@ -623,6 +650,7 @@ void redim_fltarry(char *varname)
       pi++;
       ch = p_string[pi];
     }
+
     /* get_digit Stop */
     e_pos = pi;
   }
@@ -641,6 +669,7 @@ void redim_dblarry(char *varname)
   indx = get_darrayndx(varname);
   pi = e_pos;
   len = strlen(p_string);
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -648,6 +677,7 @@ void redim_dblarry(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -666,6 +696,7 @@ void redim_dblarry(char *varname)
     dblArry[indx].sub[ndx] = subscript;
     multiplier = multiplier * subscript;
     pi = e_pos;
+
     /* get_digit Start */
     ch = p_string[pi];
     while((isdigit(ch) == 0) && (pi < len))
@@ -673,6 +704,7 @@ void redim_dblarry(char *varname)
       pi++;
       ch = p_string[pi];
     }
+
     /* get_digit Stop */
     e_pos = pi;
   }
@@ -690,6 +722,7 @@ void erase_array()
 
   len = strlen(p_string);
   pi = 0;
+
   /* get_alpha Start */
   ch = p_string[pi];
   while((isalpha(ch) == 0) && (pi < len))
@@ -697,6 +730,7 @@ void erase_array()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_alpha Stop */
   if(pi == len)					
   {
@@ -814,6 +848,7 @@ double let_intarray(char *varname)
   indx = get_iarrayndx(varname);
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -821,6 +856,7 @@ double let_intarray(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;
@@ -848,6 +884,7 @@ double let_fltarray(char *varname)
   indx = get_farrayndx(varname);
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -882,6 +919,7 @@ double let_dblarray(char *varname)
   indx = get_darrayndx(varname);
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_paren Start */
   ch = p_string[pi];
   while((strchr("()", ch) == 0) && (pi < len))
@@ -889,6 +927,7 @@ double let_dblarray(char *varname)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_paren Stop */
   pi++;
   e_pos = pi;

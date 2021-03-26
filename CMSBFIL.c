@@ -1,4 +1,4 @@
-USERID GCCCMS
+USERID CMSUSER
 /* cmsbasic : Fileio.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011           */
 /* Modified T. Chandler - CMSBASIC fileio.c   */
@@ -55,6 +55,7 @@ void get_iomode(int len)
   pi = e_pos;
   ch = p_string[pi];
   io_mode = ch;
+
   /* get_digit Start */
   ch = p_string[pi];
   while((isdigit(ch) == 0) && (pi < len))
@@ -62,6 +63,7 @@ void get_iomode(int len)
     pi++;
     ch = p_string[pi];
   }
+
   /* get_digit Stop */
   err_hndlr(ab_code, x, 2, pi, len);    
   e_pos = pi;
@@ -154,6 +156,7 @@ void do_fclose()
 
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_digit Start */
   ch = p_string[pi];
   while((isdigit(ch) == 0) && (pi < len))
@@ -161,6 +164,7 @@ void do_fclose()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_digit Stop */
   if(pi == len)			      
   {
@@ -217,6 +221,7 @@ void input_io()
   len = strlen(p_string);
   pi = e_pos;
   ch = p_string[pi]; 
+
   /* get_digit Start */
   ch = p_string[pi];
   while((isdigit(ch) == 0) && (pi < len))
@@ -224,6 +229,7 @@ void input_io()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_digit Stop */
   err_hndlr(ab_code, x, 2, pi, len);        
   e_pos = pi;
@@ -232,7 +238,7 @@ void input_io()
   port--;
   err_hndlr(ab_code, x, 3, port, maxfiles);  
   err_hndlr(ab_code, x, 7, port, 0);     
- get_finput(port, len, ch);
+  get_finput(port, len, ch);
 }
 /*------- end input_io ----------*/
 

@@ -1,4 +1,4 @@
-USERID GCCCMS
+USERID CMSUSER
 /* cmsbasic.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011 */
 
@@ -373,6 +373,7 @@ void parser()
       break;
 
     case 7:                      /* CLS */
+      clr3270();
       break;
   
     case 8:                      /* END */
@@ -517,7 +518,7 @@ void parser()
       break;
 
     case 44:                     /* RANDOM */
-  /*          do_random(); */
+       /* do_random(); */
        break;
 
     case 45:                     /* KILL (delete) a file */

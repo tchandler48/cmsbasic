@@ -1,4 +1,4 @@
-USERID GCCCMS
+USERID CMSUSER
 /* cmsbasic : error.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011          */
 /* Modified T.Chandler CMSBASIC - error.c    */
@@ -368,7 +368,7 @@ void a_bort(int code,int line_ndx)
     printf("%d, %s\n", ii, SubR[ii].SubName);
   }
   printf("\nvar count=%d\nactive subs=%d\n\n", glb_vct, ActvSubs);
-/*    exit(1);*/
+  /*    exit(1);  */
 
   if(glb_vct > 0)
   {
