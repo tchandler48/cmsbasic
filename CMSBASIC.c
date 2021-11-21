@@ -1,4 +1,5 @@
-USERID CMSUSER
+USERID GCCCMS
+
 /* cmsbasic.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011 */
 
@@ -310,10 +311,11 @@ int main(int argc, char *argv[])
     free(label_nam[ii]);
     free(array1[ii]);
   }
-
+  
   free(label_nam);
   free(byte_array);
   free(array1);
+  
   return 0;
 }
 /*--------- end main ---------*/
@@ -530,7 +532,7 @@ void parser()
       break;
 
     case 127:                    /* ENDUDT/ENDSTRUCT */
-    /* drop thru, do nothing. */
+    				     /* drop thru, do nothing. */
       return;
       break;
 

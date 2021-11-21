@@ -1,4 +1,5 @@
-USERID CMSUSER
+USERID GCCCMS
+
 /* bxbasic : Getinput.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011            */
 /* Modified T. Chandler CMSBASIC getinput.c    */

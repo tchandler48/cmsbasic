@@ -1,4 +1,5 @@
 USERID GCCCMS
+
 /* bxbasic : input.c : alpha version.20.3.1  */
 /* Copyright:(c) sarbayo, 2001-2011          */
 /* Modified T. Chandler CMSBASIC - CMSBINP.c */
@@ -15,9 +16,7 @@ void line_cnt(char *argv[])
    nrows = 0;
  
 #ifdef CMS
-
   strcpy(prog_name, argv[1]);
-
   xx = 0;
   yy = 0;
   tch = prog_name[xx];
@@ -68,7 +67,7 @@ void load_src()
      len = strlen(p_string);
      if((len > 2) && (pi < len))              
      {
-       if(!feof(f_in))
+       if(len != 999)
        {   
          strcpy(xstring, "  ");
          strcat(xstring, p_string);
@@ -145,7 +144,7 @@ void loader_1()
    ii = 0;
    while(fgets(p_string, BUFSIZE, f_in) != NULL)                      
    {
-     if(!feof(f_in))
+     if(len != 999)
      {
        len = strlen(p_string);
        /* ----- fill temp_label[] here ----- */
@@ -157,7 +156,6 @@ void loader_1()
          temp_byte[ii] = -1;
          strcpy(temp_prog[ii], "\n\0");
        }
-       /* ----- fill temp_byte[] here ----- */
        else
        {
           tmp_byte(ii);                    
@@ -339,6 +337,7 @@ int get_byte(int ii)
       ch = p_string[pi];
    }
    keyword[si] = '\0';
+
    /* --- assign byte code --- */
    if(strcmp(keyword, "REM") == 0)            byte=0;
    else if(strcmp(keyword, "LET") == 0)
@@ -515,7 +514,8 @@ void loader_2()
          preproc_sub(ndx);	  			    
       }
   }
-  nrows = line_count;
+  /* nrows = line_count; */
+  line_count = nrows;
   /* --- create program arrays --- */
   array1 = malloc(nrows * sizeof(char *));
   label_nam = malloc(nrows * sizeof(char *));

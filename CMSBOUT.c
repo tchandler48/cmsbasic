@@ -1,4 +1,5 @@
 USERID GCCCMS
+
 /* bxbasic : Output.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011          */
 /* Modified T. Chandler CMSBASIC - cmsbout.c */
@@ -202,7 +203,7 @@ void get_prnstring()
   ch = p_string[pi];
   e_pos = pi;
   /* --- print quoted string --- */
-  if(ch == ',')      printf("%s\    ", xstring);
+  if(ch == ',')      printf("%s    ",  xstring);
   else if(ch == ';') printf("%s",      xstring);
   else               printf("%s\n",    xstring);
 }
