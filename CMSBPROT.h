@@ -1,4 +1,4 @@
-USERID GCCCMS
+USERID CMSUSER
 
 /* bxbasic : prototyp.h : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011            */
