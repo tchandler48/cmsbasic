@@ -3,7 +3,7 @@
 Installation
 
 	The CMSBASIC system has been developed using VM370 6Pack Extened
-	It MAY work on other VM releases or MAY not.
+       and VM370CE.  It MAY work on other VM releases or MAY not.
 
 	To install the CMSBASIC on your running VM370 CMS
 	sysem, follow the steps listed below.
@@ -51,7 +51,7 @@ Sytems Tested
 	work.
 
 
-	1.  VM 370 6Pack Extended by Prof. Ferland at:
+	1.  VM370 6Pack Extended by Prof. Ferland at:
            	https://geronimo370.nl/vm6pext/vm-370/
 
            Tested under Userid:
@@ -75,7 +75,8 @@ Sytems Tested
 			The system is now ready applications.
 
 
+	2.  VM370CE uses the same instructions as VM370 6Pack Extened.
 
 
-	2.  Other VM370 platforms MAY or MAY NOT work.
+	3.  Other VM370 platforms MAY or MAY NOT work.
 
