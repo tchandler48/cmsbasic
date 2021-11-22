@@ -29,7 +29,7 @@ Now to execute programs
 
 Sample program bx10 bas, type the command
 
-CMSBASIC BX10 BAS
+CMSBASIC BX10.BAS
 
 you should get a sample program executed.
 
@@ -38,11 +38,11 @@ Questions/Comments
 tchandler48@gmail.com
 
 
+UPDATES:
 
-
-TO DO:
-
-Adding code to support TCP via NICOF package.  Work in
-progress.
+11/21/21
+Updated CMSBASIC to run under VM370CE.  Had to make several changes.
+If you downloaded before this date and are trying to run under VM370CE
+you will need to download the new code.
 
 
