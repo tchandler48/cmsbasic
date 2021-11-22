@@ -1,9 +1,7 @@
 USERID GCCCMS
 
-
 /* bxbasic : Utility.c : alpha version.20.3.1 */
 /* Copyright:(c) sarbayo, 2001-2011 */
-
 
 char *global_var(char *name)
 {   

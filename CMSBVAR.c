@@ -181,7 +181,6 @@ void dim_glong(char *varname)
 /*-------- end dim_glong --------*/
 
 
-
 void dim_gint(char *varname)
 {   
   int pi, ndx;               
@@ -216,7 +215,7 @@ void bld_global_table()
   {                            
     glb_vct++;
     size = glb_vct;
-    Gtbl = (struct Global_Table *) realloc(Gtbl, 
+    Gtbl = (struct Global_Table *) realloc(Gtbl, \
                     size * sizeof(struct Global_Table));
   }
 }
@@ -289,6 +288,7 @@ void parse_let()
 
   len = strlen(p_string);
   pi = e_pos;
+
   /* get_alpha Start */
   ch = p_string[pi];
   while((isalpha(ch) == 0) && (pi < len))
@@ -296,6 +296,7 @@ void parse_let()
     pi++;
     ch = p_string[pi];
   }
+
   /* get_alpha Stop */
   if(pi == len)                      
   {
@@ -502,7 +503,7 @@ int get_llvarndx(char *varname)
     sndx = ActvSubs;
     ndx = (glb_vct - 1);
     sub = Gtbl[ndx].ActSub;               
-    while((ndx > 0) && (sub == sndx) && 
+    while((ndx > 0) && (sub == sndx) && \
               (strcmp(varname, Gtbl[ndx].Nam) != 0))
     {
       ndx--;                             
